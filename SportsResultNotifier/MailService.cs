@@ -5,7 +5,6 @@ namespace SportsResultNotifier
 {
     public class MailService
     {
-        private static Timer _timer;
         public static void SendEmail()
         {
             while (true)
@@ -17,8 +16,9 @@ namespace SportsResultNotifier
                 string smtpAddress = "smtp.gmail.com";
                 int portNumber = 587;
                 bool enableSSl = true;
-                string emailFromAddress = "testetestepedro96@gmail.com";
-                string password = "wkor vliv diyv ymcb ";
+                //test mail 
+                string emailFromAddress = "";
+                string password = "";
                 string emailToAddress = "pedromila2000@gmail.com";
                 string subject = games["title"];
                 string body = $@"
@@ -56,6 +56,7 @@ namespace SportsResultNotifier
 
         public static void TimeUntilNext()
         {
+            //here you declare what time of the day you want to receive it
             TimeSpan hour = new TimeSpan(17, 0, 0);
             DateTime now = DateTime.Now;
             DateTime nextSend = now.Date.Add(hour);
@@ -65,7 +66,6 @@ namespace SportsResultNotifier
             }
             TimeSpan timeUntilNextSend = nextSend - now;
 
-            // Aguarda até o próximo horário de envio
             Console.WriteLine($"Próximo envio agendado para: {nextSend}");
             Task.Delay(timeUntilNextSend).Wait();
         }

@@ -29,7 +29,6 @@ namespace SportsResultNotifier
                 content.Add($"teamOne{i}", $"{teamOne} - {teamOnePoints}");
                 content.Add($"teamTwo{i}", $"{teamTwo} - {teamTwoPoints}");
             }
-
             return content;
         }
     }
